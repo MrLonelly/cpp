@@ -17,22 +17,32 @@ std::string Contact::field_name[COUNT] = {
 	"Darkest secret"
 };
 
-void    set_field(int i, std::string data)
+void    Contact::set_field(int i, std::string data)
 {
     this->fields[i] = data;
 }
 
+std::string     Contact::getfield(int index)
+{
+    return (this->field_name[index]);
+}
+
+std::string     Contact::getdata(int index)
+{
+    return (this->fields[index]);
+}
+
 void    Contact::create(void)
 {
-    std::string entry = "";
-
     for (int i = 0; i < COUNT; i++)
     {
+        std::string entry = "";
         while(entry.compare("") == 0)
         {
             std::cout << "Enter the '" << Contact::field_name[i] << "' %>";
             std::cin >> entry;
-            std::cout << "Entry could not be empty !" << std::endl;
+            if(entry.size() == 0)
+                std::cout << "Entry could not be empty !" << std::endl;
         }
 
         this->set_field(i, entry);

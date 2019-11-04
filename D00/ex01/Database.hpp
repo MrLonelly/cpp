@@ -14,10 +14,10 @@ public:
     ~Database();
     void    add_contact(Contact c);
     void    create(void);
+    void    display(std::string field);
+    void    show(int i);
     void    list(void);
-    Contact get_contact(int index);
     int     get_size();
 };
-
 
 #endif

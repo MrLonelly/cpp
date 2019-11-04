@@ -15,7 +15,7 @@ int     main(void)
         {
             if (command.compare("ADD") == 0)
             {
-                if(db::get_size() >= 8)
+                if(db.get_size() >= 8)
                 {
                     std::cout << "Cannot add db is full" << std::endl;
                 }
@@ -31,10 +31,14 @@ int     main(void)
             else if (command.compare("SHOW") == 0)
             {
                 db.list();
-                int i;
-                std::cout << "Enter index of wanted contact $> ";
-                std::cin >> i;
-                Contact c1 = db.get_contact(i);
+                if(db.get_size > 0)
+                {
+                    int i;
+                    std::cout << "Enter index of wanted contact $> ";
+                    std::cin >> i;
+                    std::cout << "Accout" << std::endl;
+                    db.show(i);
+                }
             }
         }
     }

@@ -12,8 +12,10 @@ class Contact
 public:
     Contact(void);
     ~Contact(void);
-    void    create(void);
-    void    set_field(int i, std::string data);
+    void        create(void);
+    std::string getdata(int index);
+    std::string getfield(int index);
+    void        set_field(int i, std::string data);
 
 private:
     static std::string field_name[COUNT];
