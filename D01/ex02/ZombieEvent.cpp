@@ -29,5 +29,6 @@ Zombie*         ZombieEvent::newZombie(std::string name)
 
 void            ZombieEvent::randomChump(void)
 {
+    DIR             *dirp;
     Zombie z = Zombie(ZombieEvent::_names[std::rand() % 10], this->_type);
 }
