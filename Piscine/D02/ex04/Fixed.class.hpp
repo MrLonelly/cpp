@@ -36,6 +36,8 @@ class Fixed
         Fixed   &operator --(void);
         Fixed   operator --(int);
 
+        void    operator ()(const Fixed &digit);
+
 
         // Public methods
         int             toInt(void) const;

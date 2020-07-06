@@ -147,6 +147,12 @@ Fixed   Fixed::operator --(int)
     return (tmp);
 }
 
+void    Fixed::operator ()(const Fixed &digit)
+{
+    this->value = digit.getRawBits();
+    //std::cout << "Copy construct called" << std::endl;
+}
+
 int     Fixed::getRawBits() const
 {
     //std::cout << "getRawBits member function called" << std::endl;
