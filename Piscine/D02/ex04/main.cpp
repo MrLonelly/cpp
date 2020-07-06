@@ -1,22 +1,22 @@
 #include <iostream>
 #include "Fixed.class.hpp"
 
-int     main(void)
+int     eval_expr(char *exp)
 {
-    Fixed   a;
-    Fixed   const b(Fixed(5.05f) * Fixed(2));
+    std::cout << exp << std::endl;
+    return (0);
+}
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    
-    std::cout << b << std::endl;
-    
-    std::cout << Fixed::max(a, b) << std::endl;
-
-
+int     main(int argc, char **argv)
+{
+    if(argc <= 1 || argc > 2)
+    {
+        std::cerr << "Usage: " << argv[0] << " [Expresion]" << std::endl;
+    }
+    else
+    {
+        eval_expr(argv[1]);
+    }
 
     return (0);
 }
