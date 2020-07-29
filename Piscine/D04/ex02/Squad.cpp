@@ -1,4 +1,5 @@
 #include "Squad.hpp"
+#include "TacticalMarine.hpp"
 
 Squad::Squad(void) : ntrops(-1), trops(nullptr){};
 
@@ -30,7 +31,7 @@ Squad &Squad::operator=(Squad const &other)
 
     for(int i = 0; i <= this->ntrops; i++)
     {
-        this0>push(other.getUnit(i));
+        this->push(other.getUnit(i));
     }
 
     return (*this);
@@ -47,25 +48,25 @@ void    Squad::clearTrops(t_marine *trops)
 
 }
 
-int    Squd::push(ISpaceMarine *n)
+int    Squad::push(ISpaceMarine *n)
 {
     if(this->trops == nullptr)
     {
-        this->trops = new this->t_marine;
-        this->trops->trop = new ISpaceMarine(*n);
+        this->trops = new t_marine;
+        this->trops->trop = n;
         this->trops->next = nullptr;
     }
     else
     {
-        this->t_marine *tmp = this->trops;
+        t_marine *tmp = this->trops;
         while(tmp->next != nullptr)
         {
             tmp = tmp->next;
         }
 
-        tmp->next = new this->t_marine;
+        tmp->next = new t_marine;
         tmp = tmp->next;
-        tmp->trop = new ISpaceMarine(*n);
+        tmp->trop = n;
         tmp->next = nullptr;
     }
 
@@ -76,12 +77,12 @@ int    Squd::push(ISpaceMarine *n)
 
 int     Squad::getCount() const
 {
-    return (this->ntrops);
+    return (this->ntrops + 1);
 }
 
 ISpaceMarine    *Squad::getUnit(int N) const
 {
-    if(N > ntrops - 1)
+    if(N > ntrops)
         return(nullptr);
     else
     {
@@ -90,6 +91,7 @@ ISpaceMarine    *Squad::getUnit(int N) const
         while(cnt != N)
         {
             tmp = tmp->next;
+            cnt++;
         }
         return (tmp->trop);
     }

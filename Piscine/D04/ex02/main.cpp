@@ -13,6 +13,7 @@ int     main(void)
     vlc->push(bob);
     vlc->push(jim);
     
+    
     for (int i = 0; i < vlc->getCount(); ++i)
     {
         ISpaceMarine* cur = vlc->getUnit(i);

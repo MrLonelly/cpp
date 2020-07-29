@@ -22,7 +22,7 @@ AssaultTerminator &AssaultTerminator::operator=(AssaultTerminator const &other)
 
 ISpaceMarine    *AssaultTerminator::clone() const
 {
-    return (new TacticalMarine);
+    return (new AssaultTerminator);
 }
 
 void    AssaultTerminator::battleCry() const
